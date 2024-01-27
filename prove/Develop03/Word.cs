@@ -1,7 +1,9 @@
+
+
 public class Word
 {
-    string _text;
-    bool _isHidden;
+    private string _text;
+    private bool _isHidden;
 
     public Word(string text)
     {
@@ -10,21 +12,32 @@ public class Word
 
     public void Hide()
     {
-        foreach ()
+        //string _originalText = _text; // Guarda el valor original de la palabra
+        foreach (char letter in "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz;,") // Recorre todas las letras del alfabeto
+        {
+            _text = _text.Replace(letter, '_'); // Reemplaza cada letra por '_'
+        }
+        _isHidden = true; // Indica que la palabra está oculta
     }
 
-        public void Show()
+    public void Show()
     {
-        
+        _isHidden = false;
     }
 
-        public bool isHidden()
+    public bool IsHidden()
     {
-        return _isHidden;
+        if (_isHidden == true)
+        {
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
-        public string GetDisplayText()
+    public string GetDisplayText()
     {
-        return " ";
+        return _text;
     }
 }
