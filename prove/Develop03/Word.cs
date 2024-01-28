@@ -1,4 +1,4 @@
-
+using System;
 
 public class Word
 {
@@ -12,12 +12,11 @@ public class Word
 
     public void Hide()
     {
-        //string _originalText = _text; // Guarda el valor original de la palabra
-        foreach (char letter in "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz;,") // Recorre todas las letras del alfabeto
+        foreach (char letter in "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz;,.")  //check every of this char and change for _
         {
-            _text = _text.Replace(letter, '_'); // Reemplaza cada letra por '_'
+            _text = _text.Replace(letter, '_'); 
         }
-        _isHidden = true; // Indica que la palabra está oculta
+        _isHidden = true; 
     }
 
     public void Show()

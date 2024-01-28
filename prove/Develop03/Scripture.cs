@@ -1,52 +1,65 @@
-using System.Data;
+using System;
+using System.Collections.Generic;
 
 public class Scripture
 {
     private Reference _reference = new Reference();
     private List<Word> _words = new List<Word>();
+    private List<int> _indexWordsList = new List<int>();                                    //Exceeding requeriments
 
     public Scripture(Reference Reference, string text)
     {
-        //separar text en palabras y agregarlo a la lista words
-        
+        //Split list in diferentes word and add to new list, then change to a Word class and create a new list of numbers that are the index of this list
         List<string> textWords = text.Split(' ').ToList();
         foreach (string word in textWords)
         {
             _words.Add(new Word(word));
         }       
-        //assignar la variable referencia a reference
-        _reference = Reference;
-        
-    }
+        //assign reference class
+        _reference = Reference;    
 
+        for (int i = 0; i < textWords.Count; i++)                                           //support list for iteration and hide() without repeat
+        {
+            _indexWordsList.Add(i);
+        }   
+    }
     public void HideRandomWords(int numberToHide)
     {
-        //elegir un numero x entre 1 y 3 esto lo hago en program
-
-        //elegir x=numberToHide items en una lista
-        Random number = new Random();
-        int numbers = number.Next(_words.Count);
-        //cambiar esoso items en palabras ocultas
-        
+        Random index = new Random();
+        //iterate x  = numberToHide times 
+        for (int i = 0; i < numberToHide; i++)
+        {   
+            int randomPos = index.Next(_words.Count);                                       //Random number between index of the list _words
+            while (!_indexWordsList.Contains(randomPos) && _indexWordsList.Count > 0)       //loop while the support list contains elements
+            {
+                randomPos = index.Next(_words.Count);                                       //make sure to select and existing index to hide() as a position
+            }
+            Word wordToHide = _words[randomPos];                                            //create nre Word and select frmo the list
+            wordToHide.Hide();                                                              //change to "_______"
+            _indexWordsList.Remove(randomPos);                                              //remode number index from list
+   
+        }
     }
 
     public string GetDisplayText()
     {
         string reference = _reference.GetDisplayText();
+        List<string> verse = new List<string>();
         foreach (Word word in _words)
         {
-            string text = word;
+            string text = word.GetDisplayText();
+            verse.Add(text); 
         }
-        string verse = ;
-
-        //devolver la lista uniendola nuevamente en un string
-        return _reference.GetDisplayText(); //sumar referencia y lista de texto y devolverla
-        
+        return reference + ": " + String.Join(" ",verse) + "\n";                                   //sreturn string from reference and from list of words (verse)   
     }
 
-    // public bool IsCompleteHidden()
-    // {
-    //     //verificar q todas las palabras de la lista esten ocultas, si es asi entonces finalizar el programa
-    //     return true; //modificar
-    // }
+    public bool IsCompleteHidden()
+    {
+    
+        if (_indexWordsList.Count == 0)
+            return true; 
+        else{
+            return false;
+        }
+    }
 }
