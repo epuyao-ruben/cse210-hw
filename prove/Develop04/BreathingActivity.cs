@@ -7,10 +7,6 @@ public class BreathingActivity : Activity
     }
     public void Run()
     {
-        Console.Clear();
-        Console.WriteLine("Get Ready...");
-        ShowSpinner(5);
-        Console.WriteLine();
         Console.Write("Breathe in...");
         ShowCountDown(2);
         Console.WriteLine();

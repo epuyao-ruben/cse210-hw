@@ -22,6 +22,11 @@ public class Activity
         Console.WriteLine($"This activity will help you {_description}.");
         Console.Write("\nHow long, in seconds, would you like for your session? ");
         _duration = int.Parse(Console.ReadLine());
+        
+        Console.Clear();
+        Console.WriteLine("Get Ready...");
+        ShowSpinner(5);
+        Console.WriteLine("");
     }
     public void DisplayEndingMessage()
     {
@@ -47,7 +52,6 @@ public class Activity
             }
             i++;
         }
-
 
     }
     public void ShowCountDown(int seconds)

@@ -1,4 +1,6 @@
 using System;
+using System.Diagnostics;
+using System.Collections.Generic;
 public class ReflectingActivity : Activity
 {
     private List<string> _prompts = new List<string>()
@@ -20,27 +22,16 @@ public class ReflectingActivity : Activity
         "What did you learn about yourself through this experience?",
         "How can you keep this experience in mind in the future?"
     };
-
-    
-
-    public ReflectingActivity() : base("Listing Activity", "reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.")
+    public ReflectingActivity() : base("Reflection Activity", "reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.")
     {
         
     }
     public void Run()
     {
+        Stopwatch timer = new Stopwatch();
+        timer.Start();
+        int limitTime = _duration*1000; 
 
-
-        Console.Clear();
-        Console.WriteLine("Get Ready...");
-        ShowSpinner(5);
-
-
-
-        DateTime currentTime = DateTime.Now;
-        DateTime futureTime = currentTime.AddSeconds(_duration);
-
-        Console.WriteLine("");
         Console.WriteLine("Consider the following prompt: ");
         Console.WriteLine("");
         DisplayPrompt();
@@ -54,13 +45,21 @@ public class ReflectingActivity : Activity
             ShowCountDown(5);
             Console.Clear();
 
-            do
+            while (timer.ElapsedMilliseconds < limitTime)
             {
                 DisplayQuestion();
+                do
+                {
+                    
+                    ShowSpinner(3);
+                    Console.Write(" ");
+                }
+                while (Console.ReadKey().Key != ConsoleKey.Enter);
+                Console.WriteLine();
+                
             }
-            while (currentTime <= futureTime);
-            
-            Console.WriteLine("end time");
+            timer.Stop();
+            Console.WriteLine();
         }
 
         
@@ -89,14 +88,5 @@ public class ReflectingActivity : Activity
     public void DisplayQuestion()
     {
         Console.Write($"> {GetRandomQuestion()} ");
-        do
-        {
-            ShowSpinner(1);
-        }
-        while (Console.ReadKey().Key != ConsoleKey.Enter);
-
-        Console.WriteLine();
-        
-        
     }
 }
