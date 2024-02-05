@@ -20,7 +20,7 @@ public class ListingActivity : Activity
     {
         Console.WriteLine("List as many responses you can to the following  prompt:");
         GetRandomPrompt();
-        Console.Write("You may begin in:");
+        Console.Write("You may begin in: ");
         ShowCountDown(5);
         Console.WriteLine();
         Stopwatch timer = new Stopwatch();
@@ -42,6 +42,7 @@ public class ListingActivity : Activity
         int randomPos = index.Next(_prompts.Count);
         string randomPrompt = _prompts[randomPos];
         Console.WriteLine($" --- {randomPrompt} --- "); 
+        _prompts.Remove(_prompts[randomPos]);                   //delete current question to avoid repeating
     }
     public List<string> GetListFromUser()
     {

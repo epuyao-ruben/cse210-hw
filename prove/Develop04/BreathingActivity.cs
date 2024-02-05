@@ -26,7 +26,6 @@ public class BreathingActivity : Activity
             Console.WriteLine();
             i += 10;
         }
-
         Console.WriteLine();
 
 

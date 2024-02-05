@@ -1,6 +1,6 @@
 using System;
 using System.Diagnostics;
-using System.Collections.Generic;
+using System.Collections.Generic;    
 public class ReflectingActivity : Activity
 {
     private List<string> _prompts = new List<string>()
@@ -24,7 +24,7 @@ public class ReflectingActivity : Activity
     };
     public ReflectingActivity() : base("Reflection Activity", "reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.")
     {
-        
+
     }
     public void Run()
     {
@@ -49,22 +49,16 @@ public class ReflectingActivity : Activity
             {
                 DisplayQuestion();
                 do
-                {
-                    
+                {  
                     ShowSpinner(3);
-                    Console.Write(" ");
+                    Console.WriteLine();
                 }
                 while (Console.ReadKey().Key != ConsoleKey.Enter);
-                Console.WriteLine();
-                
+                Console.WriteLine();    
             }
             timer.Stop();
             Console.WriteLine();
-        }
-
-        
-
-        
+        }   
     }
 
     public string GetRandomPrompt()
@@ -76,10 +70,17 @@ public class ReflectingActivity : Activity
     }
     public string GetRandomQuestion()
     {
-        Random index = new Random();
-        int randomPos = index.Next(_questions.Count);
-        string randomPrompt = _questions[randomPos];
-        return randomPrompt; 
+        if (_questions.Count > 0)
+        {
+            Random index = new Random();
+            int randomPos = index.Next(_questions.Count);
+            string randomPrompt = _questions[randomPos];        
+            _questions.Remove(_questions[randomPos]);                   //delete current question to avoid repeating
+            return randomPrompt;
+        }
+        else {
+            return "You have answered all the questions!";
+        }       
     }
     public void DisplayPrompt()
     {
