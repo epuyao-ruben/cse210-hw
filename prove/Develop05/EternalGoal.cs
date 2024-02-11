@@ -3,8 +3,8 @@ public class EternalGoal : Goal
 {
     public EternalGoal(string name, string description, int points) : base (name, description, points)
     {
-        
-
+        _checkbox = " ";
+        _typeGoal = "EternalGoal";
     }
     public override void RecordEvent()
     //This method should do whatever is necessary for each specific kind of goal, such as marking a simple goal complete and adding to the number of times a checklist goal has been completed. 

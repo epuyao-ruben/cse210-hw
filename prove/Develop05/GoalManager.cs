@@ -88,7 +88,7 @@ public class GoalManager
                 int i = 1;
                 foreach (Goal goal in _goals)
                 {
-                    Console.WriteLine($"{i}. [ ] {goal.GetStringRepresentation()}");
+                    Console.WriteLine($"{i}. {goal.GetDetailsString()}");
                     i += 1;
                 }
             }
@@ -152,10 +152,10 @@ public class GoalManager
         void RecordEvent()
         //Asks the user which goal they have done and then records the event by calling the RecordEvent method on that goal.
         {
-            ListGoalNames();
-            Console.Write("Which goal did you accomplish? ");
-            int recordSelection = int.Parse(Console.ReadLine());
-            // if (recordSelection == 1)
+            // ListGoalNames();
+            // Console.Write("Which goal did you accomplish? ");
+            // int recordSelection = int.Parse(Console.ReadLine());
+            // if (_goals[recordSelection].GetType == "SimpleGoal")
             // {
 
             // }

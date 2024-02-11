@@ -4,7 +4,7 @@ public class SimpleGoal : Goal
     private bool _IsComplete = false;
     public SimpleGoal(string name, string description, int points) : base (name, description, points)
     {
-        
+        _typeGoal = "SimpleGoal";
     }
     public override void RecordEvent()
     //This method should do whatever is necessary for each specific kind of goal, such as marking a simple goal complete and adding to the number of times a checklist goal has been completed. 
@@ -15,13 +15,15 @@ public class SimpleGoal : Goal
 
     public override bool IsComplete()
         //This method should return true if the goal is completed. The way you determine if a goal is complete is different for each type of goal.
-    {
+    {   
+        _checkbox = "X";
         return _IsComplete;
     }
 
     public override string GetStringRepresentation()
     //This method should provide all of the details of a goal in a way that is easy to save to a file, and then load later.
     {
-        return $"SimpleGoal:{_shortName},{_description},{_points},{_IsComplete}";
+        return $"{_typeGoal}:{_shortName},{_description},{_points},{_IsComplete}";
     }
+
 }
