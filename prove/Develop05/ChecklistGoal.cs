@@ -53,7 +53,7 @@ public  class ChecklistGoal : Goal {
         if (_amountComplete == _target)
         {
             
-            return _points + _target;
+            return _points + _bonus;
         }
         else
         {
