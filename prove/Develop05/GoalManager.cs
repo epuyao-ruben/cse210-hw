@@ -5,6 +5,7 @@ public class GoalManager
 {
     private List<Goal> _goals;
     private int _score;
+    private int _recordPoints = 0;
     public GoalManager()
     {
         _score = 0;
@@ -165,7 +166,9 @@ public class GoalManager
         else
         {
             _goals[index].RecordEvent();
-            _score += _goals[index].AddPoints();
+            _recordPoints += _goals[index].AddPoints();
+            Console.WriteLine($"Congratulatios! You have earned {_recordPoints} points!");
+            _score += _recordPoints;
         }
     }
     void SaveGoals()
