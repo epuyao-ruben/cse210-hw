@@ -50,7 +50,15 @@ public  class ChecklistGoal : Goal {
     }
     public override int AddPoints()
     {
-        return _points;
+        if (_amountComplete == _target)
+        {
+            
+            return _points + _target;
+        }
+        else
+        {
+            return _points;
+        }
     }
 
 
