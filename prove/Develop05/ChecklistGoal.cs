@@ -25,8 +25,7 @@ public  class ChecklistGoal : Goal {
             _checkbox = "X";
             return true;
         }
-        else{
-            _checkbox = " ";
+        else{;
             return false;
         }
     }

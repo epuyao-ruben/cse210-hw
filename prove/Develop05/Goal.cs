@@ -4,7 +4,7 @@ public abstract class Goal
     protected string _shortName;
     protected string _description;
     protected int _points;
-    protected string _checkbox;
+    protected string _checkbox = " ";
     protected string _typeGoal;
 
     public Goal(string name, string description, int points)
@@ -25,10 +25,10 @@ public abstract class Goal
     }
 
     public abstract string GetStringRepresentation();
-    public string GetType()
-    {
-        return _typeGoal;
-    }
+    // public string GetType()
+    // {
+    //     return _typeGoal;
+    // }
 
 
 

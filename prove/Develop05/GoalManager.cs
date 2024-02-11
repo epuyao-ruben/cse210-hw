@@ -152,25 +152,70 @@ public class GoalManager
         void RecordEvent()
         //Asks the user which goal they have done and then records the event by calling the RecordEvent method on that goal.
         {
-            // ListGoalNames();
-            // Console.Write("Which goal did you accomplish? ");
-            // int recordSelection = int.Parse(Console.ReadLine());
-            // if (_goals[recordSelection].GetType == "SimpleGoal")
-            // {
+            ListGoalDetails();
+            Console.WriteLine("Which goal did you accomplish? \n");
 
-            // }
+            int recordSelection;
+            recordSelection = int.Parse(Console.ReadLine());
+            if (recordSelection > _goals.Count + 1)
+            {
+                Console.WriteLine("Select a valid option");
+            }
+            else
+            {
+                Console.WriteLine(_goals[recordSelection]);
+                // if (_goals[recordSelection] = typeof(SimpleGoal))
+                // {
+
+                // }
+            }
+
 
 
         }
         void SaveGoals()
         {
-
+            Console.WriteLine("What is the filename?:");
+            string fileName = Console.ReadLine();
+            using (StreamWriter outputFile = new StreamWriter(fileName))
+            {
+                outputFile.WriteLine(_score);
+                foreach (Goal goal in _goals)
+                {
+                    //separate by |
+                    //allow write with commas and save as .csv
+                    outputFile.WriteLine(goal.GetStringRepresentation());
+                }
+            }
         }
         void LoadGoals()
         {
+            //     Console.WriteLine("What is the filename?:");
+            //     string fileName = Console.ReadLine();
 
+            //     if (File.Exists(fileName))
+            //     {
+            //         string[] lines = System.IO.File.ReadAllLines(fileName);
+            //         foreach (string line in lines)
+            //         {
+            //             string[] parts = line.Split(",");
+
+            //             //add part from file to entries list
+            //             Goal fileEntries = new Entry();
+            //             fileEntries._date = parts[0];
+            //             fileEntries._promptText = parts[1];
+            //             fileEntries._entryText = parts[2];
+            //             _entries.Add(fileEntries);
+            //         }
+            //     }
+
+            //     else
+            //     {
+            //         Console.WriteLine("File not found");
+            //     }
         }
     }
 }
+
 
 
