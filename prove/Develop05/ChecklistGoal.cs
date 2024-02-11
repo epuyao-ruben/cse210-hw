@@ -48,6 +48,10 @@ public  class ChecklistGoal : Goal {
     {
         _amountComplete = amountComplete;
     }
+    public override int AddPoints()
+    {
+        return _points;
+    }
 
 
 }

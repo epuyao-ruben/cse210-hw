@@ -32,6 +32,11 @@ public class SimpleGoal : Goal
     {
         return $"{_typeGoal},{_shortName},{_description},{_points},{_IsComplete}";
     }
+    public override int AddPoints()
+    {
+        return _points;
+    }
+
 
 
 }

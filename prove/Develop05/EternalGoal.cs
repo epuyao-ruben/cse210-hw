@@ -25,6 +25,9 @@ public class EternalGoal : Goal
     {
         return $"{_typeGoal},{_shortName},{_description},{_points} ";
     }
-
+    public override int AddPoints()
+    {
+        return _points;
+    }
 
 }

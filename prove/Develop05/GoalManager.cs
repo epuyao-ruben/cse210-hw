@@ -165,6 +165,7 @@ public class GoalManager
         else
         {
             _goals[index].RecordEvent();
+            _score += _goals[index].AddPoints();
         }
     }
     void SaveGoals()
