@@ -38,7 +38,7 @@ public  class ChecklistGoal : Goal {
     public override string GetStringRepresentation()
     //This method should provide all of the details of a goal in a way that is easy to save to a file, and then load later.
     {
-        return $"ChecklistGoal:{_shortName},{_description},{_points},{_bonus},{_target},{_amountComplete}";
+        return $"{_typeGoal},{_shortName},{_description},{_points},{_bonus},{_target},{_amountComplete}";
     }
 
 
