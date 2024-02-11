@@ -76,7 +76,8 @@ public class GoalManager
         string goalNames =
             "  1. Simple Goal\n" +
             "  2. Eternal Goal\n" +
-            "  3. Checklist Goal\n";
+            "  3. Checklist Goal\n" +
+            "  4. Negative Goal\n";
 
         Console.WriteLine(goalNames);
 
@@ -145,6 +146,17 @@ public class GoalManager
             ChecklistGoal checklistGoal = new ChecklistGoal(name, description, points, target, bonus);
             _goals.Add(checklistGoal);
         }
+        else if (typeSelection == 4)
+        {
+            Console.Write("What is the name of your goal? ");
+            string name = Console.ReadLine();
+            Console.Write("What is a short description of it? ");
+            string description = Console.ReadLine();
+            Console.Write("What is the amount of negative points associated with this goal? ");
+            int points = int.Parse(Console.ReadLine());
+            NegativeGoal negativeGoal = new NegativeGoal(name, description, points);
+            _goals.Add(negativeGoal);
+        }
         else
         {
             Console.WriteLine("Select a valid option");
@@ -167,7 +179,15 @@ public class GoalManager
         {
             _goals[index].RecordEvent();
             _recordPoints += _goals[index].AddPoints();
-            Console.WriteLine($"Congratulatios! You have earned {_recordPoints} points!");
+            if (_recordPoints > 0)
+            {
+                Console.WriteLine($"Congratulatios! You have earned {_recordPoints} points!");
+            }
+            else
+            {
+                Console.WriteLine($"Oh no! You have lost {_recordPoints} points!");
+            }
+            
             _score += _recordPoints;
         }
     }
@@ -234,11 +254,17 @@ public class GoalManager
                     }
                     _goals.Add(simpleGoal);
                 }
+                else if (parts[0] == "NegativeGoal")
+                {
+                    string name = parts[1];
+                    string description = parts[2];
+                    int points = int.Parse(parts[3]);
+                    NegativeGoal negativeGoal = new NegativeGoal(name, description, points);
+                    _goals.Add(negativeGoal);
+                }
 
             }
         }
-    
-
             else
         {
             Console.WriteLine("File not found");
