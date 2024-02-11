@@ -1,3 +1,0 @@
-0
-SimpleGoal,comprar,compar pan,20,False
-SimpleGoal,comprar ,comprar mayo,10,False

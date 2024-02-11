@@ -1,2 +1,0 @@
-0
-SimpleGoal:comer menos,Comer Ensaladas,50,False

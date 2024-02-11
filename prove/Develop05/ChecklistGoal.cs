@@ -40,6 +40,10 @@ public  class ChecklistGoal : Goal {
     {
         return $"{_typeGoal},{_shortName},{_description},{_points},{_bonus},{_target},{_amountComplete}";
     }
+    public void SetAmountComplete(int amountComplete)
+    {
+        _amountComplete = amountComplete;
+    }
 
 
 }
