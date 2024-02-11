@@ -178,7 +178,7 @@ public class GoalManager
         else
         {
             _goals[index].RecordEvent();
-            _recordPoints += _goals[index].AddPoints();
+            _recordPoints = _goals[index].AddPoints();
             if (_recordPoints > 0)
             {
                 Console.WriteLine($"Congratulatios! You have earned {_recordPoints} points!");
