@@ -14,7 +14,7 @@ public  class ChecklistGoal : Goal {
     //This method should do whatever is necessary for each specific kind of goal, such as marking a simple goal complete and adding to the number of times a checklist goal has been completed. 
     //It should return the point value associated with recording the event (keep in mind that it may contain a bonus in some cases if a checklist goal was just finished, for example).
     {
-
+        _amountComplete += 1;
     }
 
     public override bool IsComplete()
@@ -22,7 +22,7 @@ public  class ChecklistGoal : Goal {
     {
         if (_amountComplete == _target)
         {
-            _checkbox = "X";
+            
             return true;
         }
         else{;
@@ -33,6 +33,10 @@ public  class ChecklistGoal : Goal {
     //This method should return the details of a goal that could be shown in a list. It should include the checkbox, the short name, and description. 
     //Then in the case of the ChecklistGoal class, it should be overridden to shown the number of times the goal has been accomplished so far.
     {
+        if (IsComplete())
+        {
+            _checkbox = "X";
+        }
         return $"[{_checkbox}] {_shortName} ({_description}) -- Currently completed {_amountComplete}/{_target}";
     }
     public override string GetStringRepresentation()

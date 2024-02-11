@@ -154,25 +154,18 @@ public class GoalManager
     //Asks the user which goal they have done and then records the event by calling the RecordEvent method on that goal.
     {
         ListGoalDetails();
-        Console.WriteLine("Which goal did you accomplish? \n");
+        Console.Write("Which goal did you accomplish? ");
 
-        int recordSelection;
-        recordSelection = int.Parse(Console.ReadLine());
-        if (recordSelection > _goals.Count + 1)
+        int index;
+        index = int.Parse(Console.ReadLine()) - 1;
+        if (index > _goals.Count)
         {
             Console.WriteLine("Select a valid option");
         }
         else
         {
-            Console.WriteLine(_goals[recordSelection]);
-            // if (_goals[recordSelection] = typeof(SimpleGoal))
-            // {
-
-            // }
+            _goals[index].RecordEvent();
         }
-
-
-
     }
     void SaveGoals()
     {
@@ -229,16 +222,15 @@ public class GoalManager
                     string name = parts[1];
                     string description = parts[2];
                     int points = int.Parse(parts[3]);   
+                    bool isComplete = bool.Parse(parts[4]);
                     SimpleGoal simpleGoal = new SimpleGoal(name, description, points);
+                    if (isComplete == true)
+                    {
+                        simpleGoal.RecordEvent();
+                    }
                     _goals.Add(simpleGoal);
                 }
 
-            //add part from file to entries list
-            // Goal fileEntries = new Entry();
-            // fileEntries._date = parts[0];
-            // fileEntries._promptText = parts[1];
-            // fileEntries._entryText = parts[2];
-            // _entries.Add(fileEntries);
             }
         }
     
