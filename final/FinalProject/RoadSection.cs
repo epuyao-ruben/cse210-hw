@@ -44,23 +44,54 @@ public class RoadSection : Section
     }
     public override double HydraulicArea()
     {
-        return 0;
+        //Variables
+        double Z1 = _roadSlope;
+        double Yf = NormalHeight();
+
+        double A = Yf * Z1 * Yf / 2;
+        return Math.Round(A, 4);
     }
     public override double WaterSurface()
     {
-        return 0;
+        //Variables
+        double Z1 = _roadSlope;
+        double Yf = NormalHeight();
+
+        //Calc
+        double T = Yf * Z1  ;
+        return Math.Round(T, 4);
     }
     public override double Velocity()
     {
-        return 0;
+        //Variables
+        double Q = _flow;
+        double A = HydraulicArea();
+
+        //Calc
+        double V = Q / A;
+        return Math.Round(V, 4);
     }
     public override double WettedPerimeter()
     {
-        return 0;
+        //Variables
+        double Z1 = _roadSlope;
+        double Yf = NormalHeight();
+
+        //Calc
+        double P = Yf + Yf * Math.Sqrt( 1 + Z1 * Z1 );
+        return Math.Round(P, 4);
     }
     public override double HydraulicRadius()
     {
-        return 0;
+        //Variables
+        double Z1 = _roadSlope;
+        double Yf = NormalHeight();
+        double Z2 = Z1 * 100;
+
+        //Calc
+        double H = Z1 * Yf / (2 * Yf * Math.Sqrt(1 + Z1 * Z2));
+
+        return Math.Round(H, 4);
     }
     public override string GetStringRepresentation()
     {
