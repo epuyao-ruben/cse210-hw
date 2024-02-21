@@ -51,9 +51,10 @@ public class SectionManager
                 }
                 else if (choice == 4)
                 {
-                    Console.WriteLine("Display Sections\n");
+                    Console.WriteLine("Section, Flow, Bottom Width, Section Slope, Slope, Material, Radius");
                     foreach (Section section in _sections)
                     {
+                        
                         Console.WriteLine(section.GetStringRepresentation());
                     }
                     Console.WriteLine();

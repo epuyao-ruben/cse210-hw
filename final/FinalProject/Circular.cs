@@ -16,7 +16,7 @@ public class Circular : Section
     public override double NormalHeight()
     {
         {
-            Console.Clear();
+            //Console.Clear();
             // Parámetros iniciales
             double D = 2 * _radius;
             double Q = _flow;
@@ -31,14 +31,14 @@ public class Circular : Section
             for (int i = 0; i < maxIterations; i++)
             {
                 double theta = 2 * Math.Acos(1 - 2 * y / D);
-                //Console.WriteLine(theta);
+                Console.WriteLine(theta);
                 //double K = Math.Pow(4, 2.0 / 3) * 8 * Q * n / (Math.Pow(S, 0.5) * Math.Pow(D, 8.0 / 3));
-                //Console.WriteLine($"Yi: {y}");
+                Console.WriteLine($"Yi: {y}");
                 double f = y * y - y * D + Math.Pow(Math.Sin(theta / 2), 2) * ((D * D) / 4);
-                //Console.WriteLine($"f(y): {f}");
+                Console.WriteLine($"f(y): {f}");
                 double df = 2 * y - D;
-                //Console.WriteLine($"df(y): {df}");
-                //Console.WriteLine();
+                Console.WriteLine($"df(y): {df}");
+                Console.WriteLine();
 
                 y -= f / df; // Actualización del tirante
 
