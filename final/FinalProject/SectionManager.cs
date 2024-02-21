@@ -19,7 +19,7 @@ public class SectionManager
             "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n" ;
             Console.Write(welcome);
             int choice = -1;
-            while (choice != 6)
+            while (choice != 7)
             {
 
                 string menu = "\n" +
@@ -264,9 +264,12 @@ public class SectionManager
     void DisplayResults()
     {
         Console.WriteLine("DisplayResults Method running\n");
+        int i = 1;
         foreach (Section section in _sections)
         {
+            Console.WriteLine($"Section N°{i} {section}: ");
             Console.WriteLine(section.DisplayResults());
+            i += 1;
         }
     }
     void RecordResults()

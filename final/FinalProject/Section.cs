@@ -9,8 +9,7 @@ public abstract class Section
         _flow = flow;
         _slope = slope;
         _material = material;
-        Manning manning = new Manning(_material);
-        double _coefManning = manning.GetManning();
+
     
     }
 

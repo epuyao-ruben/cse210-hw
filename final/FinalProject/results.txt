@@ -1,6 +1,5 @@
 Section N°1: 
 
-
 Input Data:
 Flow             :   1.5(m3/s) 
 Bottom Width     :   0.5(m) 
@@ -15,7 +14,6 @@ Wetted Perimeter :   0(m)
 Hydraulic Radius :   0(m) 
 
 Section N°2: 
-
 
 Input Data:
 Flow             :   1.2(m3/s) 

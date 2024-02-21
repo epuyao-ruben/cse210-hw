@@ -5,12 +5,42 @@ public class RoadSection : Section
     public RoadSection(double flow, double roadSlope, double slope, string material) : base (flow, slope, material)
     {
         _roadSlope = roadSlope;
+        Manning manning = new Manning(material);
+        _coefManning = Math.Round(manning.GetManning(), 3);
 
     }
 
     public override double NormalHeight()
     {
-        return 0;
+    {
+        // Initial Calc
+        double Q = _flow;
+        double N = _coefManning;
+        double Z1 = _roadSlope;
+        double B = 0;
+        double Z2 = Z1 * 100;
+        double S = _slope;
+
+        double C = Q * N / Math.Pow(S, 0.5);
+        double Yi = 1.5;
+        double Yf = 1.2;
+
+        //iteration calc for Yf
+        for (int i = 0; i < 40; i++)
+        {
+            double temp = Yf;
+            Yf = Yi - (Math.Pow(B * Yi + ((Z1 + Z2) / 2) * Math.Pow(Yi, 2), 5.0 / 3) /
+                Math.Pow(B + Yi * Math.Sqrt(1 + Z1 * Z1) + Yi * Math.Sqrt(1 + Z2 * Z2), 2.0 / 3) - C) /
+                ((5.0 / 3) * Math.Pow(B + Yi * Math.Sqrt(1 + Z1 * Z1) + Yi * Math.Sqrt(1 + Z2 * Z2), -2.0 / 3) *
+                Math.Pow(B * Yi + ((Z1 + Z2) / 2) * Math.Pow(Yi, 2), 2.0 / 3) *
+                (B + (Z1 + Z2) * Yi) - (2.0 / 3) * Math.Pow(B * Yi + ((Z1 + Z2) / 2) * Math.Pow(Yi, 2), 5.0 / 3) *
+                Math.Pow(B + Yi * Math.Sqrt(1 + Z1 * Z1) + Yi * Math.Sqrt(1 + Z2 * Z2), -5.0 / 3) *
+                (Math.Sqrt(1 + Z1 * Z1) + Math.Sqrt(1 + Z2 * Z2)));
+
+            Yi = temp;
+        }
+        return Math.Round(Yf, 4);
+    }
     }
     public override double HydraulicArea()
     {
@@ -44,7 +74,7 @@ public class RoadSection : Section
         $"Flow             :   {_flow}(m3/s) \n" +
         $"Section Slope    :   {_roadSlope}(m/m) \n" +
         $"Slope            :   {_slope}(m/m) \n" +
-        $"Material         :   {_material} " +
+        $"Material         :   {_material} \n" +
         "\n" +
         "Results:\n" +
         $"Normal Height    :   {NormalHeight()}(m) \n" + 

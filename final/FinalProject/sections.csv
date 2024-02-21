@@ -1,0 +1,5 @@
+Section, Flow, Bottom Width, Section Slope, Slope, Material, Radius
+Rectangular,0.008,0.15,0,0.06,hdpe,0
+Triangular,1.2,0,1,0.05,steel,0
+Rectangular,0.015,0.15,0,0.0445,concrete,0
+Triangular,0.009,0,1.5,0.01,concrete,0
