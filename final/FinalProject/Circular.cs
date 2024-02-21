@@ -1,3 +1,5 @@
+using System.Data.Common;
+
 public class Circular : Section
 {
     private double _radius;
@@ -49,23 +51,48 @@ public class Circular : Section
     }
     public override double HydraulicArea()
     {
-        return 0;
+        double D = 2 * _radius;
+        double y = NormalHeight();
+        double theta = 2 * Math.Acos(1 - 2 * y / D);
+        double A = D*D*(theta-Math.Sin(theta))/8;
+
+        return Math.Round(A, 4);
     }
     public override double WaterSurface()
     {
-        return 0;
+        double D = 2 * _radius;
+        double y = NormalHeight();
+        double T =  2 * Math.Sqrt(y*(D-y));
+
+        return Math.Round(T, 4);
     }
     public override double Velocity()
     {
-        return 0;
+        //Variables
+        double Q = _flow;
+        double A = HydraulicArea();
+
+        //Calc
+        double V = Q / A;
+        return Math.Round(V, 4);
     }
     public override double WettedPerimeter()
     {
-        return 0;
+        double D = 2 * _radius;
+        double y = NormalHeight();
+        double theta = 2 * Math.Acos(1 - 2 * y / D);
+
+        double P = theta * D / 2;
+        return Math.Round(P, 4);
     }
     public override double HydraulicRadius()
     {
-        return 0;
+        double D = 2 * _radius;
+        double y = NormalHeight();
+        double theta = 2 * Math.Acos(1 - 2 * y / D);
+
+        double R = (D/4)*(1-Math.Sin(theta)/theta);
+        return Math.Round(R, 4);
     }
     public override string GetStringRepresentation()
     {
