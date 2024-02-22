@@ -91,7 +91,7 @@ public class SectionManager
     }
     void SaveSections()
     {
-        Console.WriteLine("What is the filename?:");
+        Console.WriteLine("What is the filename? (example: 'sections.csv') :");
         string fileName = Console.ReadLine();
         using (StreamWriter outputFile = new StreamWriter(fileName))
         {
@@ -107,7 +107,7 @@ public class SectionManager
     void LoadSection()
 {
         //clear List
-        Console.WriteLine("What is the filename?:");
+        Console.WriteLine("What is the filename? (example: 'sections.csv') :");
         string fileName = Console.ReadLine();
 
         if (File.Exists(fileName))
@@ -285,7 +285,7 @@ public class SectionManager
     }
     void RecordResults()
     {
-        Console.WriteLine("What is the filename?:");
+        Console.WriteLine("What is the filename? (example: 'results.txt') :");
         string fileName = Console.ReadLine();
         using (StreamWriter outputFile = new StreamWriter(fileName))
         {
