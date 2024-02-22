@@ -51,11 +51,18 @@ public class SectionManager
                 }
                 else if (choice == 4)
                 {
-                    Console.WriteLine("Section, Flow, Bottom Width, Section Slope, Slope, Material, Radius");
                     foreach (Section section in _sections)
                     {
-                        
-                        Console.WriteLine(section.GetStringRepresentation());
+                        string sections = section.GetStringRepresentation(); 
+                        string[] items = sections.Split(",");
+                        Console.WriteLine($"Section        :   {items[0]}");
+                        Console.WriteLine($"Flow           :   {items[1]}(m3/s)");
+                        Console.WriteLine($"Bottom Width   :   {items[2]}(m)");
+                        Console.WriteLine($"Section Slope  :   {items[3]}(m/m)");
+                        Console.WriteLine($"Slope          :   {items[4]}(m/m)");
+                        Console.WriteLine($"Material       :   {items[5]}");
+                        Console.WriteLine($"Radius         :   {items[6]}(m)");
+                        Console.WriteLine();
                     }
                     Console.WriteLine();
                 }
@@ -243,7 +250,7 @@ public class SectionManager
             {
                 Console.Write("Enter Flow (m3/s): ");
                 double flow = double.Parse(Console.ReadLine());
-                Console.Write("Enter Road Slope (m/m): ");
+                Console.Write("Enter Road Section Slope (m/m): ");
                 double sectionSlope = double.Parse(Console.ReadLine());
                 Console.Write("Enter Slope (m/m): ");
                 double slope = double.Parse(Console.ReadLine());
