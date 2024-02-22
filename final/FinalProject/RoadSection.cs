@@ -113,7 +113,8 @@ public class RoadSection : Section
         $"Water Surface    :   {WaterSurface()}(m) \n" +
         $"Velocity         :   {Velocity()}(m/s) \n" +
         $"Wetted Perimeter :   {WettedPerimeter()}(m) \n" +
-        $"Hydraulic Radius :   {HydraulicRadius()}(m) \n";
+        $"Hydraulic Radius :   {HydraulicRadius()}(m) \n" +
+        "--------------------------------------------";
         return displayResults;
     }
 

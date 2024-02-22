@@ -13,7 +13,7 @@ Water Surface    :   0.15(m)
 Velocity         :   1.7391(m/s) 
 Wetted Perimeter :   0.2114(m) 
 Hydraulic Radius :   0.0218(m) 
-
+--------------------------------------------
 Section N°2: 
 
 Input Data:
@@ -29,7 +29,7 @@ Water Surface    :   0.9274(m)
 Velocity         :   5.5814(m/s) 
 Wetted Perimeter :   1.3115(m) 
 Hydraulic Radius :   0.3536(m) 
-
+--------------------------------------------
 Section N°3: 
 
 Input Data:
@@ -45,7 +45,7 @@ Water Surface    :   0.15(m)
 Velocity         :   1.6854(m/s) 
 Wetted Perimeter :   0.2692(m) 
 Hydraulic Radius :   0.0332(m) 
-
+--------------------------------------------
 Section N°4: 
 
 Input Data:
@@ -61,4 +61,4 @@ Water Surface    :   0.2553(m)
 Velocity         :   0.8257(m/s) 
 Wetted Perimeter :   0.3068(m) 
 Hydraulic Radius :   0.416(m) 
-
+--------------------------------------------

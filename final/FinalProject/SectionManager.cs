@@ -51,19 +51,20 @@ public class SectionManager
                 }
                 else if (choice == 4)
                 {
+                    Console.WriteLine();
                     int i = 1;
                     foreach (Section section in _sections)
                     {
                         string sections = section.GetStringRepresentation(); 
                         string[] items = sections.Split(",");
-                        Console.WriteLine($"Section N°{i}  :   {items[0]}");
+                        Console.WriteLine($"Section N°{i} - {items[0]}");
                         Console.WriteLine($"Flow           :   {items[1]}(m3/s)");
                         Console.WriteLine($"Bottom Width   :   {items[2]}(m)");
                         Console.WriteLine($"Section Slope  :   {items[3]}(m/m)");
                         Console.WriteLine($"Slope          :   {items[4]}(m/m)");
                         Console.WriteLine($"Material       :   {items[5]}");
                         Console.WriteLine($"Radius         :   {items[6]}(m)");
-                        Console.WriteLine();
+                        Console.WriteLine("-------------------------------");
                         i += 1;
                     }
                     Console.WriteLine();
