@@ -10,8 +10,5 @@ class Program
         SectionManager newCalculation = new SectionManager();
         newCalculation.Start();
 
-
-
-
     }
 }

@@ -16,36 +16,45 @@ public class Circular : Section
     public override double NormalHeight()
     {
         {
-            //Console.Clear();
-            // Parámetros iniciales
+            // Initial varaibles
             double D = 2 * _radius;
             double Q = _flow;
             double S = _slope;
             double n = _coefManning;
 
-            double accuracy = 1e-6; // Precisión deseada
-            double maxIterations = 100; // Número máximo de iteraciones
-            double y = 1; // Suponemos un tirante inicial
+            //iteration variables
+            double accuracy = 1e-6; // Precition 
+            double maxIterations = 100; // Max cuantity of iterationss
+            double theta = 1; // proposal initial value 
 
-            // Método de Newton-Raphson
+            // Method - Newton-Raphson
             for (int i = 0; i < maxIterations; i++)
             {
-                double theta = 2 * Math.Acos(1 - 2 * y / D);
-                Console.WriteLine(theta);
-                //double K = Math.Pow(4, 2.0 / 3) * 8 * Q * n / (Math.Pow(S, 0.5) * Math.Pow(D, 8.0 / 3));
-                Console.WriteLine($"Yi: {y}");
-                double f = y * y - y * D + Math.Pow(Math.Sin(theta / 2), 2) * ((D * D) / 4);
-                Console.WriteLine($"f(y): {f}");
-                double df = 2 * y - D;
-                Console.WriteLine($"df(y): {df}");
-                Console.WriteLine();
-
-                y -= f / df; // Actualización del tirante
+                // Console.Clear();
+                // Console.WriteLine($"Q: {Q}");
+                // Console.WriteLine($"D: {D}");
+                // Console.WriteLine($"S: {S}");
+                // Console.WriteLine($"tn: {n}");
+                double K = Math.Pow(4, 2.0 / 3) * 8 * Q * n / (Math.Sqrt(S) * Math.Pow(D, 8.0 / 3));
+                //Console.WriteLine($"K: {K}");
+                
+                double f = (theta - Math.Sin(theta)) * Math.Pow((1 - Math.Sin(theta) / theta), 2.0 / 3) - K;
+                //Console.WriteLine($"f(theta): {f}");
+                
+                double df = (2 * Math.Sin(theta) * (Math.Cos(theta) / theta - Math.Sin(theta) / (theta * theta))) /
+                           (3 * Math.Pow((1 - Math.Sin(theta) / theta), 1.0 / 3)) -
+                           Math.Cos(theta) * Math.Pow((1 - Math.Sin(theta) / theta), 2.0 / 3) + 1;
+                //Console.WriteLine($"df: {df}");
+            
+                theta -= f / df; // Actualización del tirante
+                
 
                 if (Math.Abs(f) < accuracy)
                     break; // Condición de convergencia
             }
 
+            double y = (1-Math.Cos(theta/2))*(D/2);
+            
             return Math.Round(y, 4);
         }
     }

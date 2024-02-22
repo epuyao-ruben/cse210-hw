@@ -1,17 +1,18 @@
 Section N°1: 
 
 Input Data:
-Flow             :   1.5(m3/s) 
-Bottom Width     :   0.5(m) 
-Slope            :   0.01(m/m) 
+Flow             :   0.008(m3/s) 
+Bottom Width     :   0.15(m) 
+Slope            :   0.06(m/m) 
 Material         :   hdpe 
+
 Results:
-Normal Height    :   0(m) 
-Hydraulic Area   :   0(m2) 
-Water Surface    :   0(m) 
-Velocity         :   0(m/s) 
-Wetted Perimeter :   0(m) 
-Hydraulic Radius :   0(m) 
+Normal Height    :   0.0307(m) 
+Hydraulic Area   :   0.0046(m2) 
+Water Surface    :   0.15(m) 
+Velocity         :   1.7391(m/s) 
+Wetted Perimeter :   0.2114(m) 
+Hydraulic Radius :   0.0218(m) 
 
 Section N°2: 
 
@@ -20,11 +21,44 @@ Flow             :   1.2(m3/s)
 Section Slope    :   1(m/m) 
 Slope            :   0.05(m/m) 
 Material         :   steel 
+
 Results:
-Normal Height    :   0(m) 
-Hydraulic Area   :   0(m2) 
-Water Surface    :   0(m) 
-Velocity         :   0(m/s) 
-Wetted Perimeter :   0(m) 
-Hydraulic Radius :   0(m) 
+Normal Height    :   0.4637(m) 
+Hydraulic Area   :   0.215(m2) 
+Water Surface    :   0.9274(m) 
+Velocity         :   5.5814(m/s) 
+Wetted Perimeter :   1.3115(m) 
+Hydraulic Radius :   0.3536(m) 
+
+Section N°3: 
+
+Input Data:
+Flow             :   0.015(m3/s) 
+Bottom Width     :   0.15(m) 
+Slope            :   0.0445(m/m) 
+Material         :   concrete 
+
+Results:
+Normal Height    :   0.0596(m) 
+Hydraulic Area   :   0.0089(m2) 
+Water Surface    :   0.15(m) 
+Velocity         :   1.6854(m/s) 
+Wetted Perimeter :   0.2692(m) 
+Hydraulic Radius :   0.0332(m) 
+
+Section N°4: 
+
+Input Data:
+Flow             :   0.009(m3/s) 
+Section Slope    :   1.5(m/m) 
+Slope            :   0.01(m/m) 
+Material         :   concrete 
+
+Results:
+Normal Height    :   0.0851(m) 
+Hydraulic Area   :   0.0109(m2) 
+Water Surface    :   0.2553(m) 
+Velocity         :   0.8257(m/s) 
+Wetted Perimeter :   0.3068(m) 
+Hydraulic Radius :   0.416(m) 
 
